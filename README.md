@@ -1,11 +1,16 @@
-React Webpack Starter
+React Webpack Starter - ReactJS Indonesia
 =====================
 
-Universal configuration react + webpack + express isomorphic starter kit
+Konfigurasi minimal untuk memulai project baru ReactJS.
+Menggunakan standar ES6 oleh babel.
 
-## Usage
+## Syarat Sistem
 
-### Run server
+Untuk dapat menjalankan starter ini setidaknya sistem anda harus sudah terinstal NodeJS, versi terbaru direkomendasikan
+
+## Penggunaan
+
+### Jalankan server
 
 ```
 npm install
@@ -26,7 +31,7 @@ open http://localhost:3000
 
 ### Linting
 
-React-friendly ESLint configuration.
+Linting untuk react.
 
 ```
 npm run lint

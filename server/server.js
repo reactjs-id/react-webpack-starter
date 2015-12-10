@@ -1,37 +1,25 @@
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
-import React from 'react';
-import bodyParser from 'body-parser';
-import routes from '../src/routes';
-
-// SSR
-import {renderToString} from 'react-dom/server';
-import match from 'react-router/lib/match';
-import RoutingContext from 'react-router/lib/RoutingContext';
 
 // App bootstrap
 let app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+
+// assets
+app.use("/assets", express.static(path.resolve(__dirname + "/../assets")));
+
+
+// webpack assets
 app.use("/static", express.static(path.resolve(__dirname + "/../static")));
-console.log(path.resolve(__dirname + "/../static"))
+
+// root app
 app.use((req, res)=>{
 	let rootHtml = fs.readFileSync(path.resolve(__dirname + "/../index.html"), { encoding: 'utf8'});
-	match({routes: routes, location: req.url}, (err, redirectLocation, renderProps)=>{
-		if(err) return res.status(500).send(error);
-		if(redirectLocation) return res.redirect(302, redirectLocation.pathname + redirectLocation.search);
-		if(renderProps){
-			let rendered = renderToString(<RoutingContext {...renderProps} />);
-			
-			rootHtml = rootHtml.replace(new RegExp('{container}', 'g'), rendered);
-			res.status(200).send(rootHtml);
-		} else {
-			res.status(404).send("Not found >_\"");
-		}
-	})
+	return res.status(200).send(rootHtml);
 });
 
-app.listen(process.env.PORT || 3000, (err)=>{
-	console.log("Listening on port "+ process.env.PORT || 3000);
+// start server
+const port = process.env.PORT || 3000;
+app.listen(port, (err)=>{
+	console.log("Listening on port "+ port);
 })
