@@ -5,7 +5,7 @@ class Home extends React.Component {
 	render(){
 		return (
 			<div>
-				<h3>Home of a monkey</h3>
+				<h3 style={{color: 'orange'}}>Home of a </h3>
 				<Link to="about">Go to about page</Link>
 			</div>
 		)

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {
   Grid, Row, Col, Form, FormGroup, Input, Button
 } from 'react-bootstrap';
-
-if(!global.__SERVER__) require('./less/flat-ui.less');
+// load less file
+require('./less/flat-ui.less');
 
 class App extends Component {
   constructor(props){

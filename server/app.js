@@ -3,11 +3,5 @@ require('node-jsx').install({
 	harmony: true
 })
 require("babel-core/register")
-
-/**
- * Define isomorphic constants.
- */
-global.__CLIENT__ = false;
-global.__SERVER__ = true;
-
+// transpile es6 to es5
 require("./server");
