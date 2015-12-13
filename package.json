@@ -52,7 +52,7 @@
     "browsernizr": "^2.0.1",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.9.1",
-    "history": "^1.13.1",
+    "history": "1.13.1",
     "node-jsx": "^0.13.3",
     "piping": "^0.3.0",
     "react": "^0.14.0",
