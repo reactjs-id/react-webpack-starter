@@ -6,7 +6,7 @@
     "start": "node server/app.js",
     "dev": "node webpack.development.js",
     "build": "node ./node_modules/webpack/bin/webpack.js --verbose --colors --display-error-details --config webpack.client.js",
-    "lint": "./node_modules/eslint/bin/eslint.js src"
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
